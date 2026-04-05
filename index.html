@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>呂家宏 LU CHIA HUNG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #111111;
+    --ink2: #444444;
+    --ink3: #6b7280;
+    --line: #bfdbfe;
+    --bg: #ffffff;
+    --accent: #111111;
+    --blue-light: #eff6ff;
+    --blue-label: #1d4ed8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    padding: 0 40px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-name {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 12px;
+    color: var(--ink3);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* LAYOUT */
+  .page { max-width: 760px; margin: 0 auto; padding: 0 40px; }
+
+  section { padding: 72px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.10em;
+    color: var(--ink);
+    text-transform: uppercase;
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-label::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--line);
+    flex-shrink: 0;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+  .section-motto {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ink3);
+    letter-spacing: 0.08em;
+    text-transform: none;
+    white-space: nowrap;
+    margin-left: auto;
+    padding: 0 4px;
+  }
+
+  /* HERO */
+  #hero { padding-top: 88px; padding-bottom: 88px; }
+  .hero-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 32px;
+  }
+
+  .hero-name {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 52px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .hero-name span {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    color: var(--ink3);
+    display: block;
+    margin-top: 4px;
+  }
+  .hero-tagline {
+    font-size: 15px;
+    color: var(--ink2);
+    line-height: 1.9;
+    max-width: 480px;
+    margin-top: 24px;
+    padding-left: 20px;
+    border-left: 2px solid var(--ink);
+  }
+
+  .hero-motto {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px;
+    color: var(--ink3);
+    letter-spacing: 0.10em;
+    font-style: italic;
+    text-align: right;
+    line-height: 2;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .pillars { display: flex; flex-direction: column; gap: 0; }
+  .pillar {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 32px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .pillar:last-child { border-bottom: none; }
+  .pillar-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--blue-label);
+    text-transform: uppercase;
+    padding-top: 3px;
+    background: var(--blue-light);
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 3px;
+    align-self: start;
+    line-height: 1.4;
+    height: fit-content;
+  }
+  .pillar-content {}
+  .pillar-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+  .pillar-desc {
+    font-size: 14px;
+    color: var(--ink2);
+    line-height: 1.8;
+  }
+  .pillar-meta {
+    font-size: 12px;
+    color: var(--ink3);
+    margin-top: 6px;
+    letter-spacing: 0.03em;
+  }
+
+  /* CONTACT */
+  .contact-block { margin-top: 8px; }
+  .contact-email {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    display: block;
+    margin-bottom: 24px;
+  }
+  .cta-link {
+    display: inline-block;
+    background: var(--ink);
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 0.10em;
+    padding: 12px 28px;
+    text-decoration: none;
+    font-family: 'Noto Sans TC', sans-serif;
+    transition: opacity 0.2s;
+  }
+  .cta-link:hover { opacity: 0.75; }
+
+  /* FOOTER */
+  footer {
+    padding: 28px 40px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer p {
+    font-size: 11px;
+    color: var(--ink3);
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 640px) {
+    nav { padding: 0 20px; }
+    .nav-links { gap: 16px; }
+    .page { padding: 0 20px; }
+    .hero-name { font-size: 36px; }
+    .pillar { grid-template-columns: 1fr; gap: 8px; }
+    footer { padding: 24px 20px; flex-direction: column; gap: 8px; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">呂家宏 LU CHIA HUNG</span>
+  <ul class="nav-links">
+    <a href="#about">專業</a>
+    <a href="#current">現職</a>
+    <a href="#portfolio">作品集</a>
+    <a href="#contact">聯絡</a>
+  </ul>
+</nav>
+
+<main class="page">
+
+  <section id="hero">
+    <div class="hero-name">
+      呂家宏
+      <span>LU CHIA HUNG</span>
+    </div>
+    <p class="hero-tagline">
+      連鎖企業中高階主管．前大專院校專任講師<br>企業管理碩士．企業行銷顧問
+    </p>
+  </section>
+
+  <section id="about">
+    <div class="section-label">專業背景</div>
+    <div class="pillars">
+
+      <div class="pillar">
+        <div class="pillar-label">教育資格</div>
+        <div class="pillar-content">
+          <div class="pillar-title">教育部認證講師</div>
+          <div class="pillar-desc">由教育部依專科以上學校教師資格審定辦法審定，具正式講師資格。</div>
+          <div class="pillar-meta">講字第 146672 號　生效日：2018 年 10 月</div>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-label">產業貢獻</div>
+        <div class="pillar-content">
+          <div class="pillar-title">奠定中台灣電競專班規模的推手</div>
+          <div class="pillar-desc">深度參與中部地區電競教育體系的建立，協助多所高職、科大建置電競專班，推動中部電競教育從零到有的落地實踐。</div>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-label">數位能力</div>
+        <div class="pillar-content">
+          <div class="pillar-title">Google AI Essentials 認證</div>
+          <div class="pillar-desc">完成 Google 官方 AI 應用專項課程，涵蓋 AI 工具實作、提示工程與負責任 AI 使用，持續將新技術整合進教學與顧問實務。</div>
+          <div class="pillar-meta">Coursera 線上專項課程　2026 年 4 月</div>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-label">學術背景</div>
+        <div class="pillar-content">
+          <div class="pillar-title">企業管理碩士</div>
+          <div class="pillar-desc">專長行銷管理與企業策略，具備系統性商業思維，能將學術框架轉化為實務決策依據。</div>
+          <div class="pillar-meta">僑光科技大學 企業管理研究所</div>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-label">顧問經驗</div>
+        <div class="pillar-content">
+          <div class="pillar-title">企業行銷顧問</div>
+          <div class="pillar-desc">疫情逆境中，以新媒體廣告策略協助客戶年營收破千萬。整合 Facebook、Instagram、Google 多平台投放，以數據驅動內容，創造可量化的商業成果。</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="current">
+    <div class="section-label">現職</div>
+    <div class="pillars">
+
+      <div class="pillar">
+        <div class="pillar-label">企業管理</div>
+        <div class="pillar-content">
+          <div class="pillar-title">連鎖企業中高階主管</div>
+          <div class="pillar-desc">負責零售業建置、選品規劃、行銷策略制定與顧客關係管理，具備從 0 到 1 建立零售營運體系的完整實戰經驗。</div>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-label">服務</div>
+        <div class="pillar-content">
+          <div class="pillar-title">客製化 AI 工具開發</div>
+          <div class="pillar-desc">針對特定痛點，擬定解決方案後，製作客製化工具根治痛點。</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="section-label">作品集</div>
+    <div class="pillars">
+
+      <div class="pillar">
+        <div class="pillar-label">工具 01</div>
+        <div class="pillar-content">
+          <div class="pillar-title"><a href="YOUR_LINK_HERE" target="_blank" style="color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);">商品展示系統</a></div>
+          <div class="pillar-desc">增加同仁擺置商品的效率。</div>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-label">工具 02</div>
+        <div class="pillar-content">
+          <div class="pillar-title"><a href="YOUR_LINK_HERE" target="_blank" style="color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);">顧客求助系統</a></div>
+          <div class="pillar-desc">降低顧客客訴機率，增進顧客與店家的互動體驗。</div>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-label">工具 03</div>
+        <div class="pillar-content">
+          <div class="pillar-title"><a href="YOUR_LINK_HERE" target="_blank" style="color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);">HR 排班輔助工具</a></div>
+          <div class="pillar-desc">降低 HR 排班的溝通成本，告別耗時排班。</div>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-label">工具 04</div>
+        <div class="pillar-content">
+          <div class="pillar-title"><a href="YOUR_LINK_HERE" target="_blank" style="color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);">商品庫存系統</a></div>
+          <div class="pillar-desc">增加進貨人員的行政協作效率。</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id=contact>
+    <div class=section-label>聯絡</div>
+    <div class=contact-block>
+      <a class=cta-link href=mailto:awindcc@gmail.com>點我</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 呂家宏 LU CHIA HUNG</p>
+  <p>教育部認證講師 · 企業顧問</p>
+</footer>
+
+</body>
+</html>
