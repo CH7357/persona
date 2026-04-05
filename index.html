@@ -81,13 +81,7 @@
     align-items: center;
     gap: 14px;
   }
-  .section-label::before {
-    content: '';
-    width: 32px;
-    height: 1px;
-    background: var(--line);
-    flex-shrink: 0;
-  }
+  .section-label::before { display: none; }
   .section-label::after {
     content: '';
     flex: 1;
@@ -383,17 +377,11 @@
 
   <section id=contact>
     <div class=section-label>聯絡</div>
-    <div class=contact-block>
-      <a class=cta-link href=mailto:awindcc@gmail.com>點我</a>
-    </div>
+    <p style="font-size:15px;color:var(--ink);">awindcc@gmail.com</p>
   </section>
 
 </main>
 
 <footer>
   <p>© 2026 呂家宏 LU CHIA HUNG</p>
-  <p>教育部認證講師 · 企業顧問</p>
-</footer>
-
-</body>
-</html>
+  <p>教育部認證講師 · �
